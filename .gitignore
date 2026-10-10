@@ -1,0 +1,54 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+*.egg-info/
+
+# Conda / VSCode
+.ipynb_checkpoints/
+.vscode/settings.json
+
+# Dataset
+data/flickr8k/
+
+# Model weights and embeddings
+artifacts/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.npz
+*.npy
+
+# Hugging Face cache
+.cache/
+huggingface/
+models--*/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+*.log
+
+# Large archives
+*.zip
+*.rar
+*.7z
+
+# Temporary files
+tmp/
+temp/
+.DS_Store
+Thumbs.db
+data/captions.txt
+app_v15_backup.py
+scripts/eval_blip_rerank_v16_backup.py
+src/evaluate_v12_backup.py
+src/train_v12_backup.py

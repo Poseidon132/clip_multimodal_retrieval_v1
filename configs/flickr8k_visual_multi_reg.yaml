@@ -1,0 +1,16 @@
+model_name: openai/clip-vit-base-patch32
+data_csv: data/flickr8k/captions_official.csv
+image_root: data/flickr8k/Images
+output_dir: artifacts/flickr8k_visual_multi_reg
+mode: visual-only
+captions_per_image: 5
+feature_preservation_weight: 0.2
+epochs: 10
+batch_size: 12
+val_batch_size: 32
+learning_rate: 0.00002
+weight_decay: 0.01
+num_workers: 0
+validation_split: val
+early_stopping_patience: 3
+seed: 42

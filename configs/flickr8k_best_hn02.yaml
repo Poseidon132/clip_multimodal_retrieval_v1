@@ -1,0 +1,24 @@
+# Train only on the official Flickr8k TRAIN split.
+# Choose the checkpoint using the VALIDATION split; do not tune on TEST.
+model_name: openai/clip-vit-base-patch32
+data_csv: data/flickr8k/captions_official.csv
+image_root: data/flickr8k/Images
+output_dir: artifacts/flickr8k_best_hn02
+mode: projection
+
+# Same optimization hyperparameters as the HN=0.2 ablation, with a
+# longer maximum training budget because validation now selects the epoch.
+epochs: 10
+batch_size: 16
+learning_rate: 0.00005
+weight_decay: 0.01
+num_workers: 0
+hard_negative_weight: 0.2
+hard_negative_margin: 0.1
+seed: 42
+
+validation_split: val
+val_batch_size: 32
+selection_metric: mean_R@1
+early_stopping_patience: 3
+min_delta: 0.0

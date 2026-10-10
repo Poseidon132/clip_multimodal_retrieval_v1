@@ -1,0 +1,21 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Evaluate toy CLIP",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "src.evaluate",
+      "args": ["--csv", "data/toy/captions.csv", "--image-root", "data/toy/images", "--split", "test"],
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Train projection adapter",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "src.train",
+      "args": ["--config", "configs/default.yaml"],
+      "console": "integratedTerminal"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+image,caption,split
+red_square.png,a red square on a white background,train
+red_square.png,an image of a red square,train
+red_square.png,a simple square colored red,train
+blue_square.png,a blue square on a white background,train
+blue_square.png,an image of a blue square,train
+blue_square.png,a simple square colored blue,train
+green_square.png,a green square on a white background,train
+green_square.png,an image of a green square,train
+green_square.png,a simple square colored green,train
+red_circle.png,a red circle on a white background,train
+red_circle.png,an image of a red circle,train
+red_circle.png,a simple circle colored red,train
+blue_circle.png,a blue circle on a white background,train
+blue_circle.png,an image of a blue circle,train
+blue_circle.png,a simple circle colored blue,train
+green_circle.png,a green circle on a white background,train
+green_circle.png,an image of a green circle,train
+green_circle.png,a simple circle colored green,train
+red_triangle.png,a red triangle on a white background,train
+red_triangle.png,an image of a red triangle,train
+red_triangle.png,a simple triangle colored red,train
+blue_triangle.png,a blue triangle on a white background,train
+blue_triangle.png,an image of a blue triangle,train
+blue_triangle.png,a simple triangle colored blue,train
+green_triangle.png,a green triangle on a white background,test
+green_triangle.png,an image of a green triangle,test
+green_triangle.png,a simple triangle colored green,test
+yellow_square.png,a yellow square on a white background,test
+yellow_square.png,an image of a yellow square,test
+yellow_square.png,a simple square colored yellow,test
+yellow_circle.png,a yellow circle on a white background,test
+yellow_circle.png,an image of a yellow circle,test
+yellow_circle.png,a simple circle colored yellow,test
+yellow_triangle.png,a yellow triangle on a white background,test
+yellow_triangle.png,an image of a yellow triangle,test
+yellow_triangle.png,a simple triangle colored yellow,test

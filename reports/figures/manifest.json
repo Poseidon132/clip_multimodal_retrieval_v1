@@ -1,0 +1,33 @@
+{
+  "source_csv": "reports/observed_metrics.csv",
+  "optional_raw_sources": [
+    "artifacts/flickr8k_val_zero_shot.json",
+    "artifacts/flickr8k_val_projection.json",
+    "artifacts/flickr8k_val_hard_negative_01.json",
+    "artifacts/flickr8k_val_hard_negative_02.json",
+    "artifacts/flickr8k_best_hn02_val.json",
+    "artifacts/flickr8k_asymmetric_val.json",
+    "artifacts/visual_single_val.json",
+    "artifacts/visual_multi_val.json",
+    "artifacts/visual_multi_reg_val.json",
+    "artifacts/blip_visual_multi_val_full.json",
+    "artifacts/flickr8k_official_zero_shot.json",
+    "artifacts/flickr8k_projection_test.json",
+    "artifacts/flickr8k_best_hn02_test.json",
+    "artifacts/blip_visual_multi_test_final.json#clip_baseline",
+    "artifacts/blip_visual_multi_test_final.json"
+  ],
+  "generation_script": "scripts/build_release_report.py",
+  "metric": "T->I and I->T Recall@1, percentage points",
+  "aggregation": "No averaging across runs; each value is a measured single-run score",
+  "population": "Flickr8k official Val/Test gallery, 1000 images and 5000 captions per split",
+  "plot_transformations": [
+    "select split",
+    "select measured R@1 only",
+    "plot raw percentage values on zero-based bars"
+  ],
+  "uncertainty": "Not estimated; no repeated seeds or interval measurements provided",
+  "missing_values": "Kept blank in CSV and displayed as an em dash in Markdown",
+  "alpha": "1.0, selected using full validation only",
+  "note": "Pretrained BLIP added as a second-stage component; not an independently trained BLIP model"
+}

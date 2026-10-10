@@ -1,0 +1,17 @@
+model_name: openai/clip-vit-base-patch32
+data_csv: data/flickr8k/captions_official.csv
+image_root: data/flickr8k/Images
+
+output_dir: artifacts/flickr8k_hard_negative_02
+
+epochs: 5
+batch_size: 16
+learning_rate: 0.00005
+weight_decay: 0.01
+num_workers: 0
+
+mode: projection
+hard_negative_weight: 0.2
+hard_negative_margin: 0.1
+
+seed: 42
