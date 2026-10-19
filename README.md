@@ -93,24 +93,31 @@ Streamlit 页面提供文搜图、图搜文、CLIP 快速模式、BLIP 精确模
 
 ## 4. 消融实验与模型选择
 
-以下为完整验证集（1000 张图、5000 条 Caption）的实测结果：
 
-| 方案 | 文搜图 R@1 | 图搜文 R@1 | Mean R@1 |
-|:--|--:|--:|--:|
-| CLIP Zero-shot | 54.90% | 72.50% | 63.70% |
-| 视觉侧单条 Caption | 61.36% | 77.20% | 69.28% |
-| **视觉侧五条 Caption（Visual Multi）** | **62.48%** | **77.40%** | **69.94%** |
-| Visual Multi + 特征保持正则 | 62.32% | 76.60% | 69.46% |
-| Visual Multi + 原始 BLIP Top-10 | 80.04% | 89.20% | 84.62% |
-| Visual Multi + 微调后 BLIP ITM | 79.70% | 89.60% | 84.65% |
+## 系统运行展示
 
-![Flickr8k 验证集 R@1 对比](reports/figures/val_r1_comparison.png)
+基于 Streamlit 实现图文双向检索，支持 CLIP 快速检索与 BLIP Top-10 精细重排序。以下为本地 RTX 4060 环境下的实际运行结果。
 
-从结果看，使用全部 5 条 Caption 比单条 Caption 的验证集 Mean R@1 高 0.66 个百分点；当前设置下，额外的特征保持正则没有带来收益。
+### 1. 文本检索图片
 
-我也做过一轮 BLIP ITM 专项微调：使用训练集内挖掘的困难负样本，以 1:1 正负配对训练 ITM 分类头和文本编码器最后一层。尽管训练损失下降，完整验证集 Mean R@1 只从 84.62% 变为 84.65%，且文搜图 R@1 略有下降。因此正式 Web 部署仍使用 **原始预训练 BLIP**。该实验代码和配置保留在 [`scripts/train_blip_itm.py`](scripts/train_blip_itm.py) 和 [`configs/flickr8k_blip_itm_last1.yaml`](configs/flickr8k_blip_itm_last1.yaml) 中。
+输入英文描述 `a dog running through the grass`，系统返回相关图片及 BLIP 匹配分数。
 
-这组实验说明：分类损失下降不必然带来排序指标的提升。当前更适合从查询级排序目标、困难负样本质量等方面继续研究，而不是简单增加训练轮数。
+![文本检索图片](docs/screenshots/text_to_image.png)
+
+### 2. 图片检索文本
+
+上传图片后，系统返回与图片语义相关的文本描述，并显示各阶段检索耗时。
+
+![图片检索文本](docs/screenshots/image_to_text.png)
+
+### 3. 实验结果对比
+
+Flickr8k 官方测试集上，CLIP + BLIP Top-10 重排序的文搜图 R@1 为 79.32%，图搜文 R@1 为 90.70%，Mean R@1 为 85.01%。
+
+![实验结果](docs/screenshots/experiment_dashboard.png)
+
+> 注：以上准确率基于官方测试集 1000 张图片和 5000 条描述，Web 全量索引包含 8000 张图片和 40000 条描述。
+  
 
 ## 5. 环境与安装
 
